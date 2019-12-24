@@ -13,11 +13,6 @@
 body {
     
     
-    /*padding: 50px 80px;
-    background-color: lightyellow;
-    */
-    
-    
 
 }
 
@@ -69,32 +64,4 @@ p{
     cursor: pointer;
 }
 
-/*
-.main {
-    margin: auto;
-    border: 2px solid black;
-    padding: 30px;
-    text-align: center;
-    word-wrap: break-word;
-}
 
-.h1 {
-    margin: 35px auto;
-}
-
-
-
-.p {
-    margin: 60px 5px 35px;
-    font-size: 20px;
-
-}
-
-.button {
-    margin: 25px;
-    padding: 20px 50px;
-
-}
-
-
-*/
