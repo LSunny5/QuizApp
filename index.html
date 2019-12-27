@@ -15,29 +15,50 @@
             <section class="startQuiz">
                 <h1>Do you know your Disney Princesses?</h1>
                 <img src="images/Princesses.jpg" class="princessesImage" alt="Several Disney Princesses"/>
-                <p>Try this quiz to find out!</p>
+                <p class="startMessage">Try this quiz to find out!</p>
                 <button type="button" class="startButton">Start</button>
             </section>
 
-            <!--question section -->
-            <section class="questionPage hide">
+            <!--question section-->
+            <fieldset class="questionPage hide"> 
                 <form>
                     <legend>Question</legend>
-                    <p> <span>1</span> out of 15</p>
+                    <p> <span id="questionNumber"></span> out of 15</p>
                     <p class="question"></p>
-                    
-                    <button>choice 1</button>
-                    <button>choice 2</button>
-                    <button>choice 3</button>
-                    <button>choice 4</button>
+                    <section class="buttonChoices">
+          
+                             
+                        <label for="choiceA"></label>
+                        <input type="button" name="qChoices"id="choiceA">
+                        
+                        <label for="choiceB"></label>
+                        <input type="button" name="qChoices" id="choiceB">
+                        
+                        <label for="choiceC"></label>
+                        <input type="button" name="qChoices" id="choiceC">
+                        <label for="choiceD"></label>
+                        <input type="button" name="qChoices" id="choiceD">
+                        
+                                  
+                       <!--
+                        <button class="choice" id="choiceA"></button>
+                        <button class="choice" id="choiceB"></button">
+                        <button class="choice" id="choiceC"></button">
+                        <button class="choice" id="choiceD"></button">
+                        
 
-                    <p>Score: <span>5</span> out of 15</p>
+                              -->
 
-                    <button>Next</button>
+
+                    </section>
+
+                    <p class="scoreText"> Score: <span id="userScore"></span> out of 15</p>
+
+                    <button type="submit" id="submitQuestion">Submit</button>
                 </form>
+            </fieldset>
 
-
-            </section>
+            
 
 
 

@@ -10,65 +10,107 @@
 }
 
 body {
-    
-    
-
+    margin: 50px;
 }
 
 main{
-    
-    
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    /*border: 2px solid black;
+    border-image: url('images/Border.png') 500px;
+    border-image-repeat: repeat;*/
+    border: 50px solid;
+    border-image: url(images/smallborder.png) round;
+    border-image-slice: 166 215;
+    border-image-outset: 25px; 
+    padding: 10px;
+    background: lavender;
+    text-align: center;
 }
 
 .hide {
     display: none;
 }
 
-
-
-.startQuiz, .backBorder {
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    margin: 30px;
-    border: 2px solid black;
-    padding: 10px;
+.startQuiz, form, legend, span, .buttonChoices {
     background: lavender;
-    text-align: center;
-
 }
 
+
+
+
+
+
+
+/*css for start page*/
 h1 {
-    margin: 50px;
+    margin: 5px;
     background: lavender;
-    font-size: 30px;
+    font-size: 22px;
 }
 
-p{
+.startMessage{
     margin: 30px;
     background: lavender;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .princessesImage {
     height: 20%;
-    width: 50%;
-    margin: 10px;
+    width: 60%;
+    margin: 30px auto 5px;
     border: 2px solid green;
     border-radius: 8px;
 }
 
 .startButton {
-    margin: 10px auto 30px;
-    padding: 15px 50px;
+    margin: 5px auto 10px;
+    padding: 11px 40px;
     background: url(images/buttonbackground.jpg) no-repeat;
     background-size: 100%;
     border-radius: 12px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bolder;
     cursor: pointer;
     color: darkslateblue;
+}   
+
+/*css for question page*/
+legend {
+    font-size: 20px;
+    font-weight: bolder;
 }
+
+fieldset {
+    border: none;
+}
+
+p {
+    background: lavender;
+    margin: 10px;
+}
+
+
+.question {
+    margin: 35px;
+}
+
+
+.scoreText {
+    margin: 30px auto 15px;
+}
+
+#submitQuestion {
+    margin: 15px;
+    padding: 12px 20px;
+    background: darkcyan;
+    cursor: pointer;
+}
+
+
+
 
 
