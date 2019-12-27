@@ -41,6 +41,12 @@ function showQuestion (questionObject) {
 
 
 
+function finalResult () {
+    $('.startQuiz').hide();
+    $('.questionPage').hide();
+    $('.finalPage').removeClass('hide');
+}
+
 
 //Javascript Functions to run
 function begin() {
