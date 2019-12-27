@@ -7,14 +7,11 @@ let qNumber=0;
 //Function for when user clicks the start button
 function startPage() {
     $('.startQuiz').on('click', '.startButton', function(event){
-
         $('.startQuiz').hide();
         $('.questionPage').removeClass('hide');
         $('#questionNumber').html(++qNumber);
         $('#userScore').html(score);
         showQuestion(STORE[qNumber-1]);
-
-        
     });
 }
 
@@ -26,6 +23,9 @@ function startPage() {
 
 //question layout
 function showQuestion (questionObject) {
+
+
+    
    // console.log(questionObject.question);
     $('.question').text(questionObject.question);  
     $('#choiceA').html(questionObject.answers[0]);  
