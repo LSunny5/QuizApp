@@ -6,8 +6,8 @@ const STORE = [
         answers: [
             'Meeko', 'Bandit', 'Rocket', 'Kit'
         ], 
-        correct: 'Meeko'
-    }
+        correct: 'Meeko',
+    },
     //Question 2
     {
         question: 'Which princess has a job (not including her Princess duties)?', 
@@ -15,7 +15,7 @@ const STORE = [
             'Elsa', 'Cinderella', 'Tiana', 'Belle'
         ], 
         correct: 'Tiana'
-    }
+    },
     //Question 3
     {
         question: 'Anna finishes the phrase "We finish each other\'s..." with?', 
@@ -23,7 +23,7 @@ const STORE = [
             'Sentences', 'Sandwiches', 'Songs', 'Salads'
         ], 
         correct: 'Sandwiches'
-    }
+    },
     //Question 4
     {
         question: 'What does the name Mulan mean?', 
@@ -31,7 +31,7 @@ const STORE = [
             'Warrior', 'Chosen', 'Beautiful', 'Blossom'
         ], 
         correct: 'Blossom'
-    }
+    },
     //Question 5
     {
         question: 'Which princess has brothers?', 
@@ -39,7 +39,7 @@ const STORE = [
             'Moana', 'Merida', 'Snow White', 'Pocahontas'
         ], 
         correct: 'Merida'
-    }
+    },
     //Question 6
     {
         question: 'Who is the first princess with powers?', 
@@ -47,7 +47,7 @@ const STORE = [
             'Snow White', 'Elsa', 'Aurora', 'Rapunzel'
         ], 
         correct: 'Rapunzel'
-    }
+    },
     //Question 7
     {
         question: 'This princess does not wear a dress.', 
@@ -55,7 +55,7 @@ const STORE = [
             'Jasmine', 'Rapunzel', 'Tiana', 'Pocahontas'
         ], 
         correct: 'Jasmine'
-    }
+    },
     //Question 8
     {
         question: 'Who is the youngest princess?', 
@@ -63,7 +63,7 @@ const STORE = [
             'Anna', 'Jasmine', 'Snow White', 'Ariel'
         ], 
         correct: 'Snow White'
-    }
+    },
     //Question 9
     {
         question: 'Which princess has violet eyes?', 
@@ -71,7 +71,7 @@ const STORE = [
             'Tinkerbell', 'Belle', 'Aurora', 'Jasmine'
         ], 
         correct: 'Aurora'
-    }
+    },
     //Question 10
     {
         question: 'What is the name of Belle\'s horse?', 
@@ -79,7 +79,7 @@ const STORE = [
             'Philippe', 'Maximus', 'Khan', 'Samson'
         ], 
         correct: 'Philippe'
-    }
+    },
     //Question 11
     {
         question: 'What is the Tinkerbell\'s sister\'s name?', 
@@ -87,7 +87,7 @@ const STORE = [
             'Silvermist', 'Periwinkle', 'Fawn', 'Iridessa'
         ], 
         correct: 'Periwinkle'
-    }
+    },
     //Question 12
     {
         question: 'What is the name of Cinderella\'s stepmother?', 
@@ -95,7 +95,7 @@ const STORE = [
             'Olga', 'Narissa', 'Gothel', 'Tremaine'
         ], 
         correct: 'Tremaine'
-    }
+    },
     //Question 13
     {
         question: 'What is the name of the giant snow monster Else created?', 
@@ -103,7 +103,7 @@ const STORE = [
             'Snow', 'Marshmallow', 'Snowgie', 'Sentry'
         ], 
         correct: 'Marshmallow'
-    }
+    },
     //Question 14
     {
         question: 'How many sisters does Ariel have?', 
@@ -111,7 +111,7 @@ const STORE = [
             '7', '5', '8', '6'
         ], 
         correct: '6'
-    }
+    },
     //Question 15
     {
         question: 'Which princess does not sing a song?', 
