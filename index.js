@@ -2,160 +2,182 @@
 let score=0;
 let qNumber=0;
 
-
 //initialize the quiz
 function initializeQuiz() {
     $('.questionPage').hide();
     $('.finalPage').hide();
-    let score = 0;
-    let qNumber = 0;
-    console.log('initialize is run');
+    score = 0;
+    qNumber = 0;
 }
 
 //Function for when user clicks the start button
 function startPage() {
-    console.log('startPage is run');
     $('.startQuiz').on('click', '.startButton', function(event){
         $('.startQuiz').hide();
         $('.questionPage').show();
-        checkQuizNumber();
+        return checkQuizNumber();
     });
 }
 
 //check to see if quiz is completed or continuing
 function checkQuizNumber () {
     if (qNumber < STORE.length) {
-        console.log('checkQuiz number run');
-        return questionForm(qNumber);
-        
+        return questionForm(qNumber);   
     }else{
-        console.log("quiz is done");
-
-
-
-
-
-
-
-       // $('.questionPage').hide();
-       // finalResult();
-       // $('.qNumber').text(15);
-    }
+        return finalResult();
+    };
 }
 
 //print out each question
 function questionForm(questionNo) {
-    console.log('questionForm is run');
     let createQuestion = 
         `<form class="qForm">
             <fieldset>
                 <legend>Question</legend>
-                <p><span id="questionNumber">${questionNo+1}</span> out of 15</p>
+                <p><span id="questionNumber">${questionNo+1}</span> out of ${STORE.length}</p>
                 <p class="question">${STORE[questionNo].question}</p>
                 <section class="buttonChoices"></section>
-                <p class="scoreText">Score: <span class="userScore">${score}</span> out of 15</p>
+                <p class="scoreText">Score: <span class="userScore">${score}</span> out of ${STORE.length}</p>
                 <button type="button" class="submitAnswer">Submit</button>
             </fieldset>
         </form>`
 
     $('.questionPage').append(createQuestion); 
 
+    //create radio buttons for quiz
     STORE[questionNo].answers.forEach(function (answerValue, answerIndex) {
         $(`<label for="${answerIndex} class="result"></label>
         <input type="radio" class="choice" name="qChoices" id="${answerIndex}" value="${answerValue}" required>
         <span>${answerValue}</span>`).appendTo('.buttonChoices');
-    });
-    
-
-   
-    checkAnswer();
+    });  
+    return checkAnswer();
 }
 
 //check if answer is right after submitting
 function checkAnswer(){
-    console.log("check answer is run");
-    
-    $('.submitAnswer').on('click', function(event) {
-        //event.preventDefault();
+    $('.submitAnswer').one('click', function(event) {
+        event.preventDefault(); 
         let picked = $('input:checked');
         let userAnswer = picked.val();
         let correctChoice = STORE[qNumber].correct;
-
-        console.log('Correct choice is '+ correctChoice);
-        console.log('user answer is' + userAnswer);
-
         $('.submitAnswer').hide();
 
-        //FIGURE THIS OUT
+
+
+
+
+
+        //make sure user selects one
         if (!picked.val()) {
             alert('Please choose one answer!');
             //figure out where is the next button
 
             
+
+
+
+
         } else {
-            
-            $('.nextButton').show();
             if (userAnswer === correctChoice) {
-                
-
-
-                console.log("correct");
                 $('.answerResponse').html(
-                    `<section class="rightOrWrong">
-                    
+                    `<section class="responseMessage">
                     <h3>CORRECT!</h3>
                     <p>Nice Job!</p>
-                    <button class="nextButton">Next</button>
+                    <button type="submit" class="nextButton">Next</button>
                     </section>`);
-
                 score++;
                 $('.userScore').text(score);
-               
-                
             } else {
-
-
-
-                console.log("wrong");
                 $('.answerResponse').html(
-                    `<section class="rightOrWrong">
-                    
+                    `<section class="responseMessage">
                     <h3>Sorry that is wrong!</h3>
                     <p>The correct answer is ${STORE[qNumber].correct}</p>
-                    <button class="nextButton">Next</button>
+                    <button type="submit" class="nextButton">Next</button>
                     </section>`);
             };
-       
-    }
-    
+        }
     });
-    
-    
-    
-    next();
+    return next();
 }
-
 
 //go to next question
 function next() {
-    console.log('next is run');
-    $('.answerResponse').on('click', '.nextButton', function (event){
-        
-        console.log('The qNumber is ' + qNumber);
-  
-        
-
-        $('.nextButton').remove();
+    $('.answerResponse').one('click', '.nextButton', function (event){
+        event.preventDefault();
+        $('.nextButton').hide();
         $('.qForm').remove();
-        $('.rightOrWrong').remove();
+        $('.responseMessage').remove();
         qNumber++;
-        checkQuizNumber();
-        //questionForm(qNumber);
-
+        return checkQuizNumber();
     })
-    
 }
 
+
+
+
+
+
+
+
+
+function finalResult() {
+    $('.startQuiz').hide();
+    $('.questionPage').hide();
+    $('.finalPage').show();
+    const win = [
+        "CONGRATULATIONS!",
+        "images/WinImage.jpeg",
+        "Disney castle with fireworks",
+        "This calls for a celebration!"
+    ];
+    const ok = [
+        "Not bad!  You did your best!", 
+        "images/Passimage.jpeg",
+        "Belle and Beast with flowers",
+        "Next time you will get it!"
+    ];
+    const bad = [
+        "Oh no...",
+        "images/Failimage.jpg",
+        "Evil Ursula",
+        "Be careful, Ursula wants you...quick try again!"
+    ];
+    let fResult=[];
+
+
+    if (score === 3) {
+    //(score >= 11) {
+
+        fResult=win;
+
+    }else if (score === 2){
+    
+    //(score<11 && score >=5) {
+
+        fResult=ok;
+
+    }else {
+
+        fResult=bad;
+    }
+
+    $('.finalPage').html(
+        `<h1>Final score...</h1>
+        <h3>${score} out of ${STORE.length}!</h3>
+        <img src="${fResult[1]}" alt="${fResult[2]}" class=resultImage">
+        <h3>${fResult[0]}</h3>
+        <p>${fResult[3]}</p>
+        <p>Thanks for playing!</p>
+        <button type="button" class="restartButton">Try again?</button>`
+    );
+}
+
+function restartQuiz() {
+    $('.finalPage').on('click', '.restartButton', function (event){
+        initializeQuiz();
+        $('.startQuiz').show();
+    });
+}
 
 
 
@@ -171,9 +193,7 @@ function next() {
 function begin() {
     initializeQuiz();
     startPage();
-    //next();
- //   next();
- //   restartQuiz();
+    restartQuiz();
 }
 
 $(begin);

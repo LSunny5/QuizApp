@@ -16,6 +16,7 @@ const STORE = [
         ], 
         correct: 'Tiana'
     },
+
     //Question 3
     {
         question: 'Anna finishes the phrase "We finish each other\'s..." with?', 
@@ -24,6 +25,7 @@ const STORE = [
         ], 
         correct: 'Sandwiches'
     },
+    /*
     //Question 4
     {
         question: 'What does the name Mulan mean?', 
@@ -98,7 +100,7 @@ const STORE = [
     },
     //Question 13
     {
-        question: 'What is the name of the giant snow monster Else created?', 
+        question: 'What is the name of the giant snow monster Elsa created?', 
         answers: [
             'Snow', 'Marshmallow', 'Snowgie', 'Sentry'
         ], 
@@ -119,16 +121,6 @@ const STORE = [
             'Aurora', 'Mulan', 'Merida', 'Snow White'
         ], 
         correct: 'Merida'
-    }
+    }   */
+
 ];
-
-
-
-
-
-
-
-
-
-
-
