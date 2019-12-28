@@ -19,9 +19,6 @@ main{
     align-items: center;
     justify-content: space-around;
     margin: 10px;
-    /*border: 2px solid black;
-    border-image: url('images/Border.png') 500px;
-    border-image-repeat: repeat;*/
     border: 50px solid;
     border-image: url(images/smallborder.png) round;
     border-image-slice: 166 215;
@@ -35,7 +32,7 @@ main{
     display: none;
 }
 
-.startQuiz, form, legend, span, .buttonChoices {
+.startQuiz, form, legend, span, .buttonChoices, .questionPage, fieldset {
     background: lavender;
 }
 
@@ -124,7 +121,7 @@ p {
 
 
 .scoreText {
-    margin: 30px auto 15px;
+    margin: 15px auto;
 }
 
 #submitQuestion {
