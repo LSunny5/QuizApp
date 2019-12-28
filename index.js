@@ -55,29 +55,18 @@ function questionForm(questionNo) {
 
 //check if answer is right after submitting
 function checkAnswer(){
-    $('.submitAnswer').one('click', function(event) {
+    $('.submitAnswer').on('click', function(event) {
         event.preventDefault(); 
         let picked = $('input:checked');
         let userAnswer = picked.val();
         let correctChoice = STORE[qNumber].correct;
-        $('.submitAnswer').hide();
 
-
-
-
-
-
-        //make sure user selects one
+        //make sure user selects one button
         if (!picked.val()) {
+            event.preventDefault();
             alert('Please choose one answer!');
-            //figure out where is the next button
-
-            
-
-
-
-
         } else {
+            $('.submitAnswer').hide();
             if (userAnswer === correctChoice) {
                 $('.answerResponse').html(
                     `<section class="responseMessage">
@@ -111,14 +100,6 @@ function next() {
         return checkQuizNumber();
     })
 }
-
-
-
-
-
-
-
-
 
 function finalResult() {
     $('.startQuiz').hide();
@@ -178,16 +159,6 @@ function restartQuiz() {
         $('.startQuiz').show();
     });
 }
-
-
-
-
-
-
-
-
-
-
 
 //Javascript Functions to run
 function begin() {
