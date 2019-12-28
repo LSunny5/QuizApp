@@ -32,7 +32,7 @@ main{
     display: none;
 }
 
-.startQuiz, form, legend, span, .buttonChoices, .questionPage, fieldset {
+.startQuiz, form, legend, span, .buttonChoices, .questionPage, .answerResponse, fieldset {
     background: lavender;
 }
 
@@ -130,6 +130,7 @@ p {
     background: darkcyan;
     cursor: pointer;
 }
+
 
 
 

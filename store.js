@@ -6,7 +6,7 @@ const STORE = [
         answers: [
             'Meeko', 'Bandit', 'Rocket', 'Kit'
         ], 
-        correct: 'Meeko',
+        correct: 'Meeko'
     },
     //Question 2
     {
