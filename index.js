@@ -34,8 +34,9 @@ function questionForm(questionNo) {
         `<form class="qForm">
             <fieldset>
                 <legend>Question</legend>
-                <p><span id="questionNumber">${questionNo+1}</span> out of ${STORE.length}</p>
+                <h3><span>${questionNo+1}</span> out of ${STORE.length}</h3>
                 <p class="question">${STORE[questionNo].question}</p>
+                <section class="answerResponse"></section>
                 <section class="buttonChoices"></section>
                 <p class="scoreText">Score: <span class="userScore">${score}</span> out of ${STORE.length}</p>
                 <button type="button" class="submitAnswer">Submit</button>
@@ -46,9 +47,9 @@ function questionForm(questionNo) {
 
     //create radio buttons for quiz
     STORE[questionNo].answers.forEach(function (answerValue, answerIndex) {
-        $(`<label for="${answerIndex} class="result"></label>
-        <input type="radio" class="choice" name="qChoices" id="${answerIndex}" value="${answerValue}" required>
-        <span>${answerValue}</span>`).appendTo('.buttonChoices');
+        $(`<input type="radio" class="choice" name="qChoices" id="${answerValue}" value="${answerValue}" required>
+        <label for="${answerValue}" class="labelDesign" aria-label="${answerValue}" role="choices">${answerValue}</label>
+        `).appendTo('.buttonChoices');
     });  
     return checkAnswer();
 }
@@ -57,32 +58,44 @@ function questionForm(questionNo) {
 function checkAnswer(){
     $('.submitAnswer').on('click', function(event) {
         event.preventDefault(); 
+        $('.choice').attr('disabled', true);
+   
+        
+
+        
+
         let picked = $('input:checked');
         let userAnswer = picked.val();
         let correctChoice = STORE[qNumber].correct;
-
         //make sure user selects one button
         if (!picked.val()) {
             event.preventDefault();
             alert('Please choose one answer!');
         } else {
+
+            //user makes the correct choice
             $('.submitAnswer').hide();
             if (userAnswer === correctChoice) {
+                score++;
+                $('.userScore').text(score);
                 $('.answerResponse').html(
                     `<section class="responseMessage">
                     <h3>CORRECT!</h3>
-                    <p>Nice Job!</p>
-                    <button type="submit" class="nextButton">Next</button>
-                    </section>`);
-                score++;
-                $('.userScore').text(score);
+                    <p>Nice Job!</p></section>`);
+                
+                $('.nextPage').html(`<button type="submit" class="nextButton">Next</button>`);
             } else {
+                //user makes the incorrect choice
                 $('.answerResponse').html(
                     `<section class="responseMessage">
                     <h3>Sorry that is wrong!</h3>
                     <p>The correct answer is ${STORE[qNumber].correct}</p>
-                    <button type="submit" class="nextButton">Next</button>
                     </section>`);
+                $('.nextPage').html(`<button type="submit" class="nextButton">Next</button>`);
+            
+            //<button type="submit" class="nextButton">Next</button>
+            
+            
             };
         }
     });
@@ -91,7 +104,7 @@ function checkAnswer(){
 
 //go to next question
 function next() {
-    $('.answerResponse').one('click', '.nextButton', function (event){
+    $('.nextPage').one('click', '.nextButton', function (event){
         event.preventDefault();
         $('.nextButton').hide();
         $('.qForm').remove();
@@ -115,40 +128,36 @@ function finalResult() {
         "Not bad!  You did your best!", 
         "images/Passimage.jpeg",
         "Belle and Beast with flowers",
-        "Next time you will get it!"
+        "Next time you will do better!"
     ];
     const bad = [
         "Oh no...",
         "images/Failimage.jpg",
         "Evil Ursula",
-        "Be careful, Ursula wants you...quick try again!"
+        "Be careful, Ursula is out to get you...quick try again!"
     ];
     let fResult=[];
-
 
     if (score === 3) {
     //(score >= 11) {
 
         fResult=win;
-
     }else if (score === 2){
     
     //(score<11 && score >=5) {
 
         fResult=ok;
-
     }else {
-
         fResult=bad;
     }
 
     $('.finalPage').html(
         `<h1>Final score...</h1>
         <h3>${score} out of ${STORE.length}!</h3>
-        <img src="${fResult[1]}" alt="${fResult[2]}" class=resultImage">
-        <h3>${fResult[0]}</h3>
+        <img src="${fResult[1]}" alt="${fResult[2]}" class= "resultImage">
+        <h2>${fResult[0]}</h2>
         <p>${fResult[3]}</p>
-        <p>Thanks for playing!</p>
+        <p class="thanks">Thanks for playing!</p>
         <button type="button" class="restartButton">Try again?</button>`
     );
 }
