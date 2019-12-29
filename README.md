@@ -24,26 +24,3 @@ o	Follow a11y best practices.
 o	Refer back to the checkpoints on accessibility and forms for help.
 o	Use responsive design.
 o	Be fully usable by keyboard (which will be easy enough if you start with a form).
-Process requirements
-Before you dive into the app, you'll need to:
-o	gather content for your app. That means typing up the questions you'll ask and gathering any images or icons you'll need.
-o	think about the user experiences outlined above and how your design must make them possible.
-o	design your app using HTML wireframes, which are HTML- (and minimal CSS-) only versions of the different screens in your app.
-Scoring
-Before working on your app, you'll complete and submit your wireframes in the next checkpoint. The requirements are discussed further in there. Once finished, you'll complete and submit your quiz app for grading in the last checkpoint in this section. The grader will score your project based on this rubric. In order to pass, you must score an average of 3.5 points on each objective (21 total points) and cannot receive a 1 score for any objective.
-If you don't earn enough points on your quiz app to pass, you'll have the opportunity to revise and resubmit your work. Use the feedback provided by the grading team to improve your quiz app. You must resubmit your project within 5 days of receiving the initial feedback. Students who do not earn a passing score on their second attempt will schedule a call with their program manager to discuss next steps.
-Now for the fun part, let's start working on your quiz app!
-
-
-1.	Gather the content for your app
-2.	Draw a rough sketch of the interface
-3.	Build an HTML wireframe (this will be the bones of your app when you start building)
-
-
-Gather your content
-Your starting point is to choose a topic that you know a lot about.
-Write out at least 5 questions and 4 multiple choice answers per question. This will be the primary content that your quiz app delivers.
-If you're planning on displaying any images in your app, you should also gather those assets now.
-
-
-
