@@ -151,45 +151,14 @@ fieldset {
     background: darkcyan;
     cursor: pointer;
     font-family: 'Coustard', serif;
+    border-radius: 8px;
 }
 
-
-
-
-.noEffects {
-    background-color: white;
-    cursor: pointer;
-    outline: none;
-    font-size: 14px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*response text of right or wrong*/
 p{
     font-family: 'Noto Serif TC', serif;
     font-size: 18px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /*next Button*/
 .nextButton {
@@ -197,6 +166,7 @@ p{
     padding: 12px 60px;
     background: green;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 /*css for final page*/
@@ -227,4 +197,25 @@ p{
 /*final page score text*/
 h3 {
     font-family: 'Acme', sans-serif;
+}
+
+@media only screen and (max-width:550px) {
+    .question {
+        font-size: 14px;
+        margin: 25px;
+    }
+
+    .labelDesign {
+        padding: 20px;
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .scoreText {
+        width: 80%;
+    }
+
+    h3 {
+        margin: 10px;
+    }
 }

@@ -35,7 +35,7 @@ function questionForm(questionNo) {
             <fieldset>
                 <legend>Question</legend>
                 <h3><span>${questionNo+1}</span> out of ${STORE.length}</h3>
-                <p class="question">${STORE[questionNo].question}</p>
+                <p class="question" aria-labelledby="Quiz Question">${STORE[questionNo].question}</p>
                 <section class="answerResponse"></section>
                 <section class="buttonChoices"></section>
                 <p class="scoreText">Score: <span class="userScore">${score}</span> out of ${STORE.length}</p>
@@ -48,7 +48,7 @@ function questionForm(questionNo) {
     //create radio buttons for quiz
     STORE[questionNo].answers.forEach(function (answerValue, answerIndex) {
         $(`<input type="radio" class="choice" name="qChoices" id="${answerValue}" value="${answerValue}" required>
-        <label for="${answerValue}" class="labelDesign" aria-label="${answerValue}" role="choices">${answerValue}</label>
+        <label for="${answerValue}" class="labelDesign" aria-labelledby="${answerValue}" role="choices">${answerValue}</label>
         `).appendTo('.buttonChoices');
     });  
     return checkAnswer();
@@ -60,9 +60,6 @@ function checkAnswer(){
         event.preventDefault(); 
         $('.choice').attr('disabled', true);
    
-        
-
-        
 
         let picked = $('input:checked');
         let userAnswer = picked.val();
@@ -88,14 +85,12 @@ function checkAnswer(){
                 //user makes the incorrect choice
                 $('.answerResponse').html(
                     `<section class="responseMessage">
-                    <h3>Sorry that is wrong!</h3>
+                    <h3 class="wrongMessage">Sorry that is wrong!</h3>
                     <p>The correct answer is ${STORE[qNumber].correct}</p>
                     </section>`);
+                
+                $('.wrongMessage').css("background", "red");
                 $('.nextPage').html(`<button type="submit" class="nextButton">Next</button>`);
-            
-            //<button type="submit" class="nextButton">Next</button>
-            
-            
             };
         }
     });
@@ -138,14 +133,9 @@ function finalResult() {
     ];
     let fResult=[];
 
-    if (score === 3) {
-    //(score >= 11) {
-
+    if (score >= 11) {
         fResult=win;
-    }else if (score === 2){
-    
-    //(score<11 && score >=5) {
-
+    }else if (score<11 && score >=5) {
         fResult=ok;
     }else {
         fResult=bad;

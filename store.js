@@ -25,7 +25,7 @@ const STORE = [
         ], 
         correct: 'Sandwiches'
     },
-    /*
+    
     //Question 4
     {
         question: 'What does the name Mulan mean?', 
@@ -122,6 +122,6 @@ const STORE = [
             'Aurora', 'Mulan', 'Merida', 'Snow White'
         ], 
         correct: 'Merida'
-    }   */
+    }   
 
 ];
