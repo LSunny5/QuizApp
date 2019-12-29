@@ -34,7 +34,7 @@ function questionForm(questionNo) {
         `<form class="qForm">
             <fieldset>
                 <legend>Question</legend>
-                <h3><span>${questionNo+1}</span> out of ${STORE.length}</h3>
+                <p class="quizQuestionNo"><span>${questionNo+1}</span> out of ${STORE.length}</p>
                 <p class="question" aria-labelledby="Quiz Question">${STORE[questionNo].question}</p>
                 <section class="answerResponse"></section>
                 <section class="buttonChoices"></section>
@@ -57,44 +57,49 @@ function questionForm(questionNo) {
 //check if answer is right after submitting
 function checkAnswer(){
     $('.submitAnswer').on('click', function(event) {
-        event.preventDefault(); 
-        $('.choice').attr('disabled', true);
-   
-
+        event.preventDefault();
         let picked = $('input:checked');
-        let userAnswer = picked.val();
-        let correctChoice = STORE[qNumber].correct;
-        //make sure user selects one button
+                
         if (!picked.val()) {
             event.preventDefault();
             alert('Please choose one answer!');
-        } else {
-
-            //user makes the correct choice
-            $('.submitAnswer').hide();
-            if (userAnswer === correctChoice) {
-                score++;
-                $('.userScore').text(score);
-                $('.answerResponse').html(
-                    `<section class="responseMessage">
-                    <h3>CORRECT!</h3>
-                    <p>Nice Job!</p></section>`);
-                
-                $('.nextPage').html(`<button type="submit" class="nextButton">Next</button>`);
+            //make sure user selects one button
             } else {
-                //user makes the incorrect choice
-                $('.answerResponse').html(
-                    `<section class="responseMessage">
-                    <h3 class="wrongMessage">Sorry that is wrong!</h3>
-                    <p>The correct answer is ${STORE[qNumber].correct}</p>
-                    </section>`);
-                
-                $('.wrongMessage').css("background", "red");
-                $('.nextPage').html(`<button type="submit" class="nextButton">Next</button>`);
-            };
-        }
+                let userAnswer = picked.val();
+                let correctChoice = STORE[qNumber].correct;
+                //user makes the correct choice
+                $('.submitAnswer').hide();
+                if (userAnswer === correctChoice) {
+                    score++;
+                    $('.userScore').text(score);
+                    $('.answerResponse').html(
+                        `<section class="responseMessage">
+                        <p class="rightMessage">CORRECT!</p>
+                        <p>Nice Job!</p></section>`);
+                    
+                        
+
+                    $('.nextPage').html(`<button type="submit" class="nextButton">Next</button>`);
+                    
+                } else {
+                    //user makes the incorrect choice
+                    $('.answerResponse').html(
+                        `<section class="responseMessage">
+                        <p class="wrongMessage">Sorry that is wrong!</p>
+                        <p>The correct answer is ${STORE[qNumber].correct}</p>
+                        </section>`);
+                    
+                    $('.wrongMessage').css("background", "red");
+                    $('.nextPage').html(`<button type="submit" class="nextButton">Next</button>`);
+                };
+                $('.choice').attr('disabled', true);
+                $('.labelDesign').addClass('noeffects');
+
+
+                return next();
+            }
     });
-    return next();
+    
 }
 
 //go to next question
@@ -143,9 +148,9 @@ function finalResult() {
 
     $('.finalPage').html(
         `<h1>Final score...</h1>
-        <h3>${score} out of ${STORE.length}!</h3>
+        <h2>${score} out of ${STORE.length}!</h2>
         <img src="${fResult[1]}" alt="${fResult[2]}" class= "resultImage">
-        <h2>${fResult[0]}</h2>
+        <h3>${fResult[0]}</h3>
         <p>${fResult[3]}</p>
         <p class="thanks">Thanks for playing!</p>
         <button type="button" class="restartButton">Try again?</button>`
