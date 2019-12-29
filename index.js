@@ -138,6 +138,7 @@ function finalResult() {
     ];
     let fResult=[];
 
+    //change score numbers for shorter quiz
     if (score >= 11) {
         fResult=win;
     }else if (score<11 && score >=5) {
@@ -147,8 +148,7 @@ function finalResult() {
     }
 
     $('.finalPage').html(
-        `<h1>Final score...</h1>
-        <h2>${score} out of ${STORE.length}!</h2>
+        `<h2>${score} out of ${STORE.length}!</h2>
         <img src="${fResult[1]}" alt="${fResult[2]}" class= "resultImage">
         <h3>${fResult[0]}</h3>
         <p>${fResult[3]}</p>

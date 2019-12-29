@@ -16,7 +16,6 @@ const STORE = [
         ], 
         correct: 'Tiana'
     },
-
     //Question 3
     {
         question: 'Anna finishes the phrase "We finish each other\'s..." with?', 
@@ -26,6 +25,10 @@ const STORE = [
         correct: 'Sandwiches'
     },
     
+    //need to change score limits in js for shorter quiz
+    //left space to shorten quiz if needed (delete next line comment to apply)
+    // ]; /*
+
     //Question 4
     {
         question: 'What does the name Mulan mean?', 
@@ -123,5 +126,4 @@ const STORE = [
         ], 
         correct: 'Merida'
     }   
-
 ];

@@ -27,6 +27,11 @@ main{
     text-align: center;
 }
 
+:focus {
+    outline: 5px solid blue;
+}
+
+/*setting background color for elements*/
 main, .startQuiz, h1, form, legend, span, .userScore,
 .buttonChoices, .questionPage, .answerResponse, .nextPage, fieldset,
 img, .responseMessage, p, .finalPage, h2, h3, .welcomeMessage {
@@ -172,6 +177,8 @@ fieldset {
     cursor: pointer;
     font-family: 'Coustard', serif;
     border-radius: 8px;
+    background: url(images/bluelight.jpg);
+    border: 2px solid blue;
 }
 
 /*wrong or right message heading*/
@@ -204,6 +211,11 @@ p{
     background: green;
     cursor: pointer;
     border-radius: 8px;
+    background: url(images/greentriangles.jpg);
+    background-size: 100%;
+    border: 2px solid green;
+    font-family: 'Coustard', serif;   
+    font-size: 14px;
 }
 
 /*css for final page*/
@@ -239,7 +251,7 @@ h3 {
 @media only screen and (max-width:550px) {
     .question {
         font-size: 14px;
-        margin: 25px;
+        margin: 5px;
     }
 
     .labelDesign {
@@ -250,17 +262,27 @@ h3 {
 
     .scoreText {
         width: 80%;
+        margin: 0 auto;
     }
 
     h3 {
         margin: 10px;
     }
+    main {
+        padding: 0;
+    }
+    p{
+        font-size: 14px;
+    }
+
+    .buttonChoices {
+        margin: 0 auto 10px;
+    }
+    .quizQuestionNo {
+        margin: 5px;
+        padding: 5px;
+    }
+    .rightMessage {
+        margin: 5px;
+    }
 }
-
-
-   /* font-family: 'Coustard', serif;   
-    font-family: 'Archivo Black', sans-serif;
-    font-family: 'Acme', sans-serif;
-    font-family: 'Noto Serif TC', serif;
-    font-family: 'Luckiest Guy', cursive;
-    */
