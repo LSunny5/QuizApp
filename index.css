@@ -55,7 +55,6 @@ h1 {
     border-radius: 8px;
 }
 
-
 /*start page welcome message and*/
 .welcomeMessage, .quizQuestionNo {
     font-family: 'Acme', sans-serif;
@@ -186,17 +185,25 @@ fieldset {
     font-family: 'Archivo Black', sans-serif;
     text-align: center;
     font-size: 20px;
-    padding: 10px;
+    padding: 5px;
+    margin: 10px;
+    background: lightblue;
 }
 
+/*response to user if right or wrong*/
+.responseMessage {
+    border: 2px solid darkslategrey;
+    width: 50%;
+    margin: 0 auto;
+    background: lightblue;
+}
 
-
-
-
-
-
-
-
+.message {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px;
+    margin: 0 auto 10px;
+    background: lightblue;
+}
 
 /*response text of right or wrong*/
 p{
@@ -211,11 +218,12 @@ p{
     background: green;
     cursor: pointer;
     border-radius: 8px;
-    background: url(images/greentriangles.jpg);
+    background: url(images/lightgreen.jpg);
     background-size: 100%;
     border: 2px solid green;
     font-family: 'Coustard', serif;   
-    font-size: 14px;
+    font-size: 16px;
+    color:#2B006B;  
 }
 
 /*css for final page*/
@@ -284,5 +292,13 @@ h3 {
     }
     .rightMessage {
         margin: 5px;
+    }
+    .responseMessage {
+        width: 100%;
+        margin: 0 auto 10px;
+    }
+    .resultImage {
+        width: 100%;
+        margin: 0;
     }
 }

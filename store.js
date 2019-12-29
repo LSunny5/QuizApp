@@ -53,7 +53,6 @@ const STORE = [
         ], 
         correct: 'Rapunzel'
     },
-  
     //Question 7
     {
         question: 'This princess does not wear a dress.', 

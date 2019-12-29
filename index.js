@@ -63,10 +63,12 @@ function checkAnswer(){
         if (!picked.val()) {
             event.preventDefault();
             alert('Please choose one answer!');
+
             //make sure user selects one button
             } else {
                 let userAnswer = picked.val();
                 let correctChoice = STORE[qNumber].correct;
+
                 //user makes the correct choice
                 $('.submitAnswer').hide();
                 if (userAnswer === correctChoice) {
@@ -75,31 +77,27 @@ function checkAnswer(){
                     $('.answerResponse').html(
                         `<section class="responseMessage">
                         <p class="rightMessage">CORRECT!</p>
-                        <p>Nice Job!</p></section>`);
-                    
-                        
-
+                        <p class="message">Nice Job!</p></section>`);
+                    $('.choice:checked + label').css("background", "green");
                     $('.nextPage').html(`<button type="submit" class="nextButton">Next</button>`);
-                    
                 } else {
+
                     //user makes the incorrect choice
                     $('.answerResponse').html(
                         `<section class="responseMessage">
                         <p class="wrongMessage">Sorry that is wrong!</p>
-                        <p>The correct answer is ${STORE[qNumber].correct}</p>
+                        <p class="message">The correct answer is ${STORE[qNumber].correct}</p>
                         </section>`);
-                    
+                    $('.choice:checked + label').css("background", "red");
+                    $('label:contains("'+correctChoice+'")').css("background-color", "green");
                     $('.wrongMessage').css("background", "red");
                     $('.nextPage').html(`<button type="submit" class="nextButton">Next</button>`);
                 };
                 $('.choice').attr('disabled', true);
                 $('.labelDesign').addClass('noeffects');
-
-
                 return next();
             }
     });
-    
 }
 
 //go to next question
@@ -148,7 +146,8 @@ function finalResult() {
     }
 
     $('.finalPage').html(
-        `<h2>${score} out of ${STORE.length}!</h2>
+        `<h1>Final score...</h1>
+        <h2>${score} out of ${STORE.length}!</h2>
         <img src="${fResult[1]}" alt="${fResult[2]}" class= "resultImage">
         <h3>${fResult[0]}</h3>
         <p>${fResult[3]}</p>
