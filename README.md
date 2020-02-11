@@ -12,3 +12,6 @@ HTML/CSS/JavaScript/jQuery
 
 ## Motivation:
 I built it for my daughters who love Disney Princess trivia.
+
+## Screenshot: 
+![QuizApp](images/princessQuiz.png)
